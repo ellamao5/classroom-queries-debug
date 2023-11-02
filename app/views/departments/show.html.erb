@@ -22,7 +22,7 @@
       Name
     </label>
 
-    <input type="text" id="name_box" name="query_name" value="<%= @department.name %>">
+    <input type="text" id="name_box" name="the_department" value="<%= @department.name %>">
   </div>
 
   <button>
@@ -52,11 +52,11 @@
 <hr>
 
 <h2>Courses</h2>
-<% courses = Course.where({ :department_id => @department.name }) %>
-<ul>
-  <% courses.each do |course| %>
-    <li>
-      <a href="/courses/<%= course.id %>"><%= course.title %></a>
-    </li>
-  <% end %>
-</ul>
+
+  <ul>
+    <% @matching_courses.each do |course| %>
+      <li>
+        <a href="/courses/<%= course.id %>"><%= course.title %></a>
+      </li>
+    <% end %>
+  </ul>
